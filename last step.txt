@@ -1,0 +1,23 @@
+while True:
+	print("\nEnter your move (type -1 in row to quit):")
+
+
+	while True:
+		r = int(input("Row (0–8): "))
+		if r == -1:
+			break   
+
+		c = int(input("Column (0–8): "))
+		n = int(input("Number (1–9): "))
+
+		if user_move(puzzle, r, c, n):
+			print("\nValid move!")
+			print("\nUpdated Puzzle:")
+			print_grid(puzzle)
+			break   
+		else:
+			print("\nInvalid move! Puzzle unchanged. Try again...")
+			print_grid(puzzle)  
+
+	if r == -1:
+		break  
