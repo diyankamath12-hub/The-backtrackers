@@ -1,0 +1,8 @@
+import random
+
+def is_present_inbox(grid, row, col, num):
+	for i in range(3):
+		for j in range(3):
+			if grid[row + i][col + j] == num:
+				return False
+	return True
