@@ -1,0 +1,8 @@
+def is_Safe(grid, row, col, num):
+    br = row - row % 3
+    bc = col - col % 3
+    return (
+        is_present_inrow(grid, row, num) and
+        is_present_incol(grid, col, num) and
+        is_present_inbox(grid, br, bc, num)
+    )
