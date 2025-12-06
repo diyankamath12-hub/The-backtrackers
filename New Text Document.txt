@@ -1,29 +1,5 @@
-def fill_grid(grid, row, col):
-  if row == 9:
-    return True
-  if col == 9:
-    return fill_grid(grid, row + 1, 0)
-  if grid[row][ col ] != 0:
-    return fill_grid(grid, row, col + 1)
+sud = generate_sudoku()
+puzzle = remove_cells([row[:] for row in sud], 40)
 
-  nums = list(range(1, 10))
-  random.shuffle(nums)
-
-  for num in nums:
-    if is_Safe(grid, row, col, num):
-      grid[row][col] = num
-      if fill_grid(grid, row, col + 1):
-        return True
-      grid[row][col] = 0
-  return False
-
-def generate_sudoko():
-  grid=[]
-  for i in range(9):
-    row = []
-    for j in range(9):
-      row.append(0)
-    grid.append(row)
-
-  fill_grid(grid, 0, 0)
-  return grid
+print("Generated Puzzle:")
+print_grid(puzzle)
