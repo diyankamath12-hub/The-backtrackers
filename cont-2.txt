@@ -1,0 +1,22 @@
+def remove_cells(grid, count):
+    removed = 0
+    while removed < count:
+        r = random.randint(0, 8)
+        c = random.randint(0, 8)
+        if grid[r][c] != 0:
+            grid[r][c] = 0
+            removed += 1
+    return grid
+
+def print_grid(grid):
+    for row in grid:
+        print(row)
+
+def user_move(grid, row, col, num):
+    if grid[row][col] != 0:
+        return False
+    if is_Safe(grid, row, col, num):
+        grid[row][col] = num
+        return True
+    return False
+
